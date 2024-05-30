@@ -9,7 +9,6 @@ import { Repository } from "typeorm";
 export class CreateAdminHandler implements ICommandHandler<CreateAdminCommand> {
   constructor(@InjectRepository(Admin) private readonly repo: Repository<Admin>) {}
 
-
   async execute(command: CreateAdminCommand): Promise<Admin> {
     return this.repo.save({ ...command.admin })
   }
